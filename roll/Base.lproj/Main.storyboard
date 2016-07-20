@@ -24,7 +24,7 @@
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <segue destination="Txx-vm-SUZ" kind="presentation" trigger="accessoryAction" id="t6y-4E-Mbz"/>
+                                    <segue destination="Txx-vm-SUZ" kind="presentation" identifier="newTaskSwipe" trigger="accessoryAction" id="t6y-4E-Mbz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -41,7 +41,7 @@
         <!--NewTask-->
         <scene sceneID="0o7-H0-HSA">
             <objects>
-                <viewController title="NewTask" modalPresentationStyle="overCurrentContext" id="Txx-vm-SUZ" sceneMemberID="viewController">
+                <viewController title="NewTask" modalPresentationStyle="overCurrentContext" id="Txx-vm-SUZ" customClass="NewTask" customModule="roll" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W2c-yH-4gb"/>
                         <viewControllerLayoutGuide type="bottom" id="29y-27-Omm"/>
@@ -50,37 +50,62 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xOc-l7-bOV">
-                                <rect key="frame" x="251" y="295" width="98" height="30"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y91-q1-gLU">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xOc-l7-bOV">
+                                        <rect key="frame" x="71" y="71" width="98" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="d1X-eO-zyp"/>
+                                            <constraint firstAttribute="width" secondItem="xOc-l7-bOV" secondAttribute="height" multiplier="49:15" id="kh7-kG-rlT"/>
+                                            <constraint firstAttribute="width" constant="98" id="oQ6-Y7-ML4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="NEW TASK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBs-hV-wvC">
+                                        <rect key="frame" x="70" y="28" width="100" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="JSi-ku-YPF"/>
+                                            <constraint firstAttribute="width" secondItem="bBs-hV-wvC" secondAttribute="height" multiplier="20:7" id="tew-aJ-oXv"/>
+                                            <constraint firstAttribute="width" constant="100" id="xZn-fT-fa5"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Me7-bc-hGL">
+                                        <rect key="frame" x="202" y="8" width="30" height="30"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="15"/>
+                                        <state key="normal" title="X">
+                                            <color key="titleColor" white="0.042865953947368418" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeButtonWasClicked:" destination="Txx-vm-SUZ" eventType="touchUpInside" id="6ju-vc-AUG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="d1X-eO-zyp"/>
-                                    <constraint firstAttribute="width" secondItem="xOc-l7-bOV" secondAttribute="height" multiplier="49:15" id="kh7-kG-rlT"/>
-                                    <constraint firstAttribute="width" constant="98" id="oQ6-Y7-ML4"/>
+                                    <constraint firstItem="Me7-bc-hGL" firstAttribute="top" secondItem="y91-q1-gLU" secondAttribute="top" constant="8" id="DUK-Li-Gbs"/>
+                                    <constraint firstAttribute="trailing" secondItem="Me7-bc-hGL" secondAttribute="trailing" constant="8" id="PIm-Zo-ZbG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="NEW TASK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBs-hV-wvC">
-                                <rect key="frame" x="250" y="239" width="100" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="JSi-ku-YPF"/>
-                                    <constraint firstAttribute="width" secondItem="bBs-hV-wvC" secondAttribute="height" multiplier="20:7" id="tew-aJ-oXv"/>
-                                    <constraint firstAttribute="width" constant="100" id="xZn-fT-fa5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <rect key="contentStretch" x="0.0" y="0.0" width="0.5" height="0.5"/>
                         <constraints>
-                            <constraint firstItem="xOc-l7-bOV" firstAttribute="centerX" secondItem="uxZ-tK-x4o" secondAttribute="centerX" id="Wde-zU-UsC"/>
-                            <constraint firstItem="bBs-hV-wvC" firstAttribute="centerX" secondItem="uxZ-tK-x4o" secondAttribute="centerX" id="cpN-uH-ET4"/>
-                            <constraint firstItem="xOc-l7-bOV" firstAttribute="top" secondItem="bBs-hV-wvC" secondAttribute="bottom" constant="21" id="tuw-iY-tA7"/>
+                            <constraint firstItem="y91-q1-gLU" firstAttribute="centerY" secondItem="uxZ-tK-x4o" secondAttribute="centerY" id="3CW-EM-J4f"/>
+                            <constraint firstItem="y91-q1-gLU" firstAttribute="centerX" secondItem="uxZ-tK-x4o" secondAttribute="centerX" id="xFf-uC-w9B"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="popupView" destination="y91-q1-gLU" id="F5P-rf-CT8"/>
+                        <segue destination="gdE-NA-yMb" kind="unwind" unwindAction="unwindFromNewTask:" id="1Q5-BU-R0j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oee-ri-Lqz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="gdE-NA-yMb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1024" y="331"/>
         </scene>

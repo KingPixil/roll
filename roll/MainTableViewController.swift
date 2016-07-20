@@ -8,10 +8,12 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
+class MainTableViewController: UITableViewController, Dimmable {
 
     let gradientLayer = CAGradientLayer()
     var tasks = ["This is your First Note", "Swipe Down to Create One", "Swipe this left or right to delete it"]
+    let dimLevel: CGFloat = 0.5
+    let dimSpeed: Double = 0.5
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +36,25 @@ class MainTableViewController: UITableViewController {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        dim(.In, alpha: dimLevel, speed: dimSpeed)
+    }
+    
+    @IBAction func unwindFromNewTask(segue: UIStoryboardSegue) {
+        dim(.Out, speed: dimSpeed)
+    }
     
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
-    func handleSwipe(gesture:UISwipeGestureRecognizer) {
-        if (gesture.direction == .Right) {
+    func handleSwipe(sender:UISwipeGestureRecognizer) {
+        if (sender.direction == .Right) {
             print("Swipe Down")
+            performSegueWithIdentifier("newTaskSwipe", sender: sender)
         }
     }
+    
 
     // MARK: - Table view data source
 
