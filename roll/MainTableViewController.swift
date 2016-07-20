@@ -16,6 +16,9 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // no table seperators
+        tableView.separatorStyle = .None
+        
         // background gradient
         gradientLayer.frame = self.view.bounds
         let color1 = UIColor(red: 0.20, green: 0.56, blue: 0.31, alpha: 1.0).CGColor as CGColorRef
@@ -44,7 +47,8 @@ class MainTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Item", forIndexPath: indexPath)
         
-        cell.textLabel?.text = tasks[indexPath.row]
+        cell.textLabel?.font = UIFont(name:"Avenir Next", size:13)
+        cell.textLabel?.text = tasks[indexPath.row].uppercaseString
         cell.backgroundColor = UIColor.clearColor()
         cell.textLabel?.textColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.9)
 
