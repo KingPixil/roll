@@ -2,7 +2,7 @@
 //  MainTableViewController.swift
 //  roll
 //
-//  Created by Gopal Shah on 7/19/16.
+//  Created by Kabir Shah on 7/19/16.
 //  Copyright © 2016 Kabir Shah. All rights reserved.
 //
 
@@ -18,7 +18,7 @@ class MainTableViewController: UITableViewController {
         
         // no table seperators
         tableView.separatorStyle = .None
-        
+                
         // background gradient
         gradientLayer.frame = self.view.bounds
         let color1 = UIColor(red: 0.20, green: 0.56, blue: 0.31, alpha: 1.0).CGColor as CGColorRef
@@ -27,11 +27,22 @@ class MainTableViewController: UITableViewController {
         gradientLayer.locations = [0.0, 1.0]
         self.view.layer.insertSublayer(gradientLayer, atIndex:0)
         
+        // swipe down action
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
+        swipeDown.direction = .Right
+        view.addGestureRecognizer(swipeDown)
+        
     }
     
     
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    func handleSwipe(gesture:UISwipeGestureRecognizer) {
+        if (gesture.direction == .Right) {
+            print("Swipe Down")
+        }
     }
 
     // MARK: - Table view data source
