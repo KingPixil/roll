@@ -11,7 +11,7 @@ import UIKit
 class MainTableViewController: UITableViewController {
 
     let gradientLayer = CAGradientLayer()
-    var defaultNotes = ["First Note", "Second Note"]
+    var tasks = ["This is your First Note", "Swipe Down to Create One", "Swipe this left or right to delete it"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +38,15 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return tasks.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Item", forIndexPath: indexPath)
         
-        cell.textLabel?.text = defaultNotes[indexPath.row]
+        cell.textLabel?.text = tasks[indexPath.row]
         cell.backgroundColor = UIColor.clearColor()
+        cell.textLabel?.textColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.9)
 
         return cell
     }
