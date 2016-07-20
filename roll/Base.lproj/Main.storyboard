@@ -8,7 +8,7 @@
         <!--Main-->
         <scene sceneID="tOB-cm-5XB">
             <objects>
-                <tableViewController title="Main" id="SvC-gP-gPl" customClass="MainViewController" sceneMemberID="viewController">
+                <tableViewController title="Main" id="SvC-gP-gPl" customClass="MainTableViewController" customModule="roll" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yms-mD-D5z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
