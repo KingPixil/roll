@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainTableViewController: UITableViewController, Dimmable {
 
@@ -14,6 +15,7 @@ class MainTableViewController: UITableViewController, Dimmable {
     var tasks = ["This is your First Note", "Swipe Down to Create One", "Swipe this left or right to delete it"]
     let dimLevel: CGFloat = 0.5
     let dimSpeed: Double = 0.5
+    let systemSoundId: SystemSoundID = 1117
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class MainTableViewController: UITableViewController, Dimmable {
         tableView.separatorStyle = .None
                 
         // background gradient
+        self.view.backgroundColor = UIColor.blackColor()
         gradientLayer.frame = self.view.bounds
         let color1 = UIColor(red: 0.20, green: 0.56, blue: 0.31, alpha: 1.0).CGColor as CGColorRef
         let color2 = UIColor(red: 0.34, green: 0.71, blue: 0.83, alpha: 1.0).CGColor as CGColorRef
@@ -31,7 +34,7 @@ class MainTableViewController: UITableViewController, Dimmable {
         
         // swipe down action
         let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
-        swipeDown.direction = .Down
+        swipeDown.direction = .Right
         self.view.addGestureRecognizer(swipeDown)
         
     }
@@ -49,8 +52,9 @@ class MainTableViewController: UITableViewController, Dimmable {
     }
     
     func handleSwipe(gesture:UISwipeGestureRecognizer) {
-        if (gesture.direction == .Down) {
+        if (gesture.direction == .Right) {
             print("Swipe Down")
+            AudioServicesPlaySystemSound(systemSoundId)
             performSegueWithIdentifier("newTaskSwipe", sender: gesture)
         }
     }

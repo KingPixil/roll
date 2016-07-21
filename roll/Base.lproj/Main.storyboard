@@ -9,20 +9,19 @@
         <!--Main-->
         <scene sceneID="tOB-cm-5XB">
             <objects>
-                <tableViewController title="Main" id="SvC-gP-gPl" customClass="MainTableViewController" customModule="roll" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Main" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="SvC-gP-gPl" customClass="MainTableViewController" customModule="roll" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Yms-mD-D5z">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Item" id="Pkr-Bh-xpD">
+                            <tableViewCell autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Item" id="Pkr-Bh-xpD">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pkr-Bh-xpD" id="vbJ-LF-nsY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <segue destination="Txx-vm-SUZ" kind="presentation" identifier="newTaskSwipe" trigger="accessoryAction" id="t6y-4E-Mbz"/>
                                 </connections>
