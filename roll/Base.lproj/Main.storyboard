@@ -61,9 +61,6 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                                        <connections>
-                                            <action selector="taskWasMade:" destination="Txx-vm-SUZ" eventType="editingDidEnd" id="Mch-uG-5FS"/>
-                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="NEW TASK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBs-hV-wvC">
                                         <rect key="frame" x="70" y="28" width="100" height="35"/>
@@ -83,7 +80,7 @@
                                             <color key="titleColor" white="0.042865953947368418" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="gdE-NA-yMb" kind="unwind" unwindAction="unwindFromNewTask:" id="Upc-js-f0E"/>
+                                            <segue destination="gdE-NA-yMb" kind="unwind" identifier="unwindManual" unwindAction="unwindFromNewTask:" id="Upc-js-f0E"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -104,6 +101,7 @@
                     <connections>
                         <outlet property="popupView" destination="y91-q1-gLU" id="F5P-rf-CT8"/>
                         <outlet property="taskField" destination="xOc-l7-bOV" id="eX1-1u-icM"/>
+                        <segue destination="gdE-NA-yMb" kind="unwind" unwindAction="unwindFromNewTask:" id="hDz-x5-5Df"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oee-ri-Lqz" userLabel="First Responder" sceneMemberID="firstResponder"/>

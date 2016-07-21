@@ -9,11 +9,9 @@
 import UIKit
 import AVFoundation
 
-class MainTableViewController: UITableViewController, UIGestureRecognizerDelegate, Dimmable {
+
+class MainTableViewController: UITableViewController, Dimmable {
     
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
 
     let gradientLayer = CAGradientLayer()
     var tasks = ["This is your First Note", "Swipe Down to Create One", "Swipe this left or right to delete it"]
@@ -36,10 +34,14 @@ class MainTableViewController: UITableViewController, UIGestureRecognizerDelegat
         gradientLayer.locations = [0.0, 1.0]
         self.view.layer.insertSublayer(gradientLayer, atIndex:0)
         
-        // swipe down action
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
-        swipeDown.direction = .Down
-        self.view.addGestureRecognizer(swipeDown)
+//        // swipe down action
+//        let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
+//        swipeDown.direction = .Down
+//        self.view.addGestureRecognizer(swipeDown)
+        
+        // refresh
+        refreshControl = UIRefreshControl()
+        refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         
     }
     
@@ -57,12 +59,25 @@ class MainTableViewController: UITableViewController, UIGestureRecognizerDelegat
         return true
     }
     
-    func handleSwipe(gesture:UISwipeGestureRecognizer) {
-        if (gesture.direction == .Down) {
-            print("Swipe Down")
-            AudioServicesPlaySystemSound(systemSoundId)
-            performSegueWithIdentifier("newTaskSwipe", sender: gesture)
-        }
+//    func handleSwipe(gesture:UISwipeGestureRecognizer) {
+//        if (gesture.direction == .Down) {
+////            print("Swipe Down")
+////            AudioServicesPlaySystemSound(systemSoundId)
+////            refreshControl!.endRefreshing()
+////            performSegueWithIdentifier("newTaskSwipe", sender: gesture)
+//        }
+//    }
+    
+    func refresh(sender:AnyObject) {
+        print("Swipe Down")
+        AudioServicesPlaySystemSound(systemSoundId)
+        refreshControl!.endRefreshing()
+        performSegueWithIdentifier("newTaskSwipe", sender: sender)
+
+    }
+    
+    func addTask(taskText: String) {
+        tasks.append(taskText)
     }
     
 

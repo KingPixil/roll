@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewTask: UIViewController {
+class NewTask: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var popupView: UIView!
     @IBOutlet var taskField: UITextField!
@@ -35,8 +35,12 @@ class NewTask: UIViewController {
         return true
     }
     
-    @IBAction func taskWasMade(sender: UITextField) {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         var taskText: String = taskField.text!
+        MainTableViewController().addTask(taskText)
+        self.performSegueWithIdentifier("unwindManual", sender: self)
+        print("Textarea returned")
+        return true
     }
     /*
     // MARK: - Navigation
