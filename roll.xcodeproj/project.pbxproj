@@ -199,6 +199,7 @@
 				TargetAttributes = {
 					28223D9E1D3F2DF500CECA9A = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 85F97WNQ7Y;
 					};
 					28223DB21D3F2DF500CECA9A = {
 						CreatedOnToolsVersion = 7.2;
@@ -407,10 +408,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = roll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ml.kabir.roll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -418,10 +422,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = roll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ml.kabir.roll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -492,6 +499,7 @@
 				28223DC91D3F2DF500CECA9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28223DCA1D3F2DF500CECA9A /* Build configuration list for PBXNativeTarget "rollTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +508,7 @@
 				28223DCC1D3F2DF500CECA9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		28223DCD1D3F2DF500CECA9A /* Build configuration list for PBXNativeTarget "rollUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +517,7 @@
 				28223DCF1D3F2DF500CECA9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

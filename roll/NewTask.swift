@@ -34,6 +34,8 @@ class NewTask: UIViewController {
     }
     
 
+    @IBAction func closeButtonWasClicked(sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 

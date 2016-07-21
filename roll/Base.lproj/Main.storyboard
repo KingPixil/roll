@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1909" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SvC-gP-gPl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SvC-gP-gPl">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -81,7 +81,7 @@
                                             <color key="titleColor" white="0.042865953947368418" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="closeButtonWasClicked:" destination="Txx-vm-SUZ" eventType="touchUpInside" id="6ju-vc-AUG"/>
+                                            <segue destination="gdE-NA-yMb" kind="unwind" unwindAction="unwindFromNewTask:" id="Upc-js-f0E"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -101,7 +101,6 @@
                     </view>
                     <connections>
                         <outlet property="popupView" destination="y91-q1-gLU" id="F5P-rf-CT8"/>
-                        <segue destination="gdE-NA-yMb" kind="unwind" unwindAction="unwindFromNewTask:" id="1Q5-BU-R0j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oee-ri-Lqz" userLabel="First Responder" sceneMemberID="firstResponder"/>

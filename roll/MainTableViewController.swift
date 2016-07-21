@@ -31,8 +31,8 @@ class MainTableViewController: UITableViewController, Dimmable {
         
         // swipe down action
         let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
-        swipeDown.direction = .Right
-        view.addGestureRecognizer(swipeDown)
+        swipeDown.direction = .Down
+        self.view.addGestureRecognizer(swipeDown)
         
     }
     
@@ -48,10 +48,10 @@ class MainTableViewController: UITableViewController, Dimmable {
         return true
     }
     
-    func handleSwipe(sender:UISwipeGestureRecognizer) {
-        if (sender.direction == .Right) {
+    func handleSwipe(gesture:UISwipeGestureRecognizer) {
+        if (gesture.direction == .Down) {
             print("Swipe Down")
-            performSegueWithIdentifier("newTaskSwipe", sender: sender)
+            performSegueWithIdentifier("newTaskSwipe", sender: gesture)
         }
     }
     
