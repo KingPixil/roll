@@ -11,6 +11,8 @@ import UIKit
 class NewTask: UIViewController {
 
     @IBOutlet var popupView: UIView!
+    @IBOutlet var taskField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,8 +35,8 @@ class NewTask: UIViewController {
         return true
     }
     
-
-    @IBAction func closeButtonWasClicked(sender: UIButton) {
+    @IBAction func taskWasMade(sender: UITextField) {
+        var taskText: String = taskField.text!
     }
     /*
     // MARK: - Navigation

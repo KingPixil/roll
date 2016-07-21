@@ -9,7 +9,11 @@
 import UIKit
 import AVFoundation
 
-class MainTableViewController: UITableViewController, Dimmable {
+class MainTableViewController: UITableViewController, UIGestureRecognizerDelegate, Dimmable {
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 
     let gradientLayer = CAGradientLayer()
     var tasks = ["This is your First Note", "Swipe Down to Create One", "Swipe this left or right to delete it"]
@@ -34,7 +38,7 @@ class MainTableViewController: UITableViewController, Dimmable {
         
         // swipe down action
         let swipeDown = UISwipeGestureRecognizer(target: self, action: Selector("handleSwipe:"))
-        swipeDown.direction = .Right
+        swipeDown.direction = .Down
         self.view.addGestureRecognizer(swipeDown)
         
     }
@@ -47,12 +51,14 @@ class MainTableViewController: UITableViewController, Dimmable {
         dim(.Out, speed: dimSpeed)
     }
     
+    
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
     
     func handleSwipe(gesture:UISwipeGestureRecognizer) {
-        if (gesture.direction == .Right) {
+        if (gesture.direction == .Down) {
             print("Swipe Down")
             AudioServicesPlaySystemSound(systemSoundId)
             performSegueWithIdentifier("newTaskSwipe", sender: gesture)
